@@ -33,6 +33,14 @@ let cactusImg1;
 let cactusImg2;
 let cactusImg3;
 
+// adding physics
+let veloX = -8;
+let veloY = 0;
+let g = .4;
+
+let gameOver = false;
+let score = 0;
+
 
 // onloading function
 window.onload = function () {
@@ -60,10 +68,30 @@ window.onload = function () {
     cactusImg3.src = ".img/cactus3.png";
 
     requestAnimationFrame(update);
+    setInterval(placeCactus, 1000);
+    document.addEventListener("keydown", movDino);
 }
 
 function update() {
     requestAnimationFrame(update);
-    context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
-}
+    if (gameOver) {
+        return;
+    }
+    context.clearRect(0, 0, board.width, board.height);
 
+    veloY += g;
+    dino.y = Math.min(dino.y + veloY, dinoY);
+    context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+
+    for (let i = 0; i < cactusArr.length; i++) {
+        let cactus = cactusArr[i];
+        cactus.x += veloX;
+        context.drawImage(cactus.img, cactus.x, cactus.y, cactus.width, cactus.height);
+    }
+
+
+    context.fillStyle = "black";
+    context.font = "20px courier";
+    score++;
+    context.fillText(score, 5, 20);
+}
