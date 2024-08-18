@@ -95,3 +95,50 @@ function update() {
     score++;
     context.fillText(score, 5, 20);
 }
+
+function movDino(e) {
+    if (gameOver) {
+        return;
+    }
+
+    if ((e.code == "space" || e.code == "ArrowUp") && dino.y == dinoY) {
+        veloY = -10;
+    }
+    // else if(e.code == "ArrowDown" && dino.y == dinoY{     
+    // }
+}
+
+function placeCactus() {
+    if (gameOver) {
+        return;
+    }
+
+    let cactus = {
+        img: null,
+        x: cactusX,
+        y: cactusY,
+        width: null,
+        height: cactusHeight
+    };
+
+
+    let placeCacChance = Math.random();
+
+    if (placeCacChance > .90) {
+        cactus.img = cactusImg3;
+        cactus.width = cactus3Width;
+        cactusArr.push(cactus);
+    } else if (placeCacChance > .70) {
+        cactus.img = cactusImg2;
+        cactus.width = cactus2Width;
+        cactusArr.push(cactus);
+    } else if (placeCacChance > .50) {
+        cactus.img = cactusImg1;
+        cactus.width = cactus1Width;
+        cactusArr.push(cactus);
+    }
+
+    if (cactusArr.length > 5) {
+        cactusArr.shift();
+    }
+}
