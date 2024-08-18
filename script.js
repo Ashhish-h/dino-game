@@ -39,6 +39,7 @@ let velocityY = 0;
 let gravity = .4;
 
 let gameOver = false;
+let gameOverDisplayed = false;
 let score = 0;
 
 window.onload = function () {
@@ -71,6 +72,12 @@ window.onload = function () {
 function update() {
     requestAnimationFrame(update);
     if (gameOver) {
+        if (!gameOverDisplayed) {
+            const h1 = document.createElement('h1');
+            h1.textContent = "Game Over " + "your score is " + score;
+            document.body.appendChild(h1);
+            gameOverDisplayed = true;
+        }
         return;
     }
     context.clearRect(0, 0, board.width, board.height);
@@ -105,6 +112,7 @@ function update() {
 function moveDino(e) {
     if (gameOver) {
         return;
+        // alert("game over");
     }
 
     if ((e.code == "Space" || e.code == "ArrowUp") && dino.y == dinoY) {
@@ -149,9 +157,9 @@ function placeCactus() {
         cactusArray.push(cactus);
     }
 
-    if (cactusArray.length > 5) {
-        cactusArray.shift();
-    }
+    // if (cactusArray.length > 5) {
+    //     cactusArray.shift();
+    // }
 }
 
 function detectCollision(a, b) {
