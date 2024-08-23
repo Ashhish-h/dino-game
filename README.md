@@ -23,8 +23,8 @@ Clone the repository to your local machine:
 
 ## bash
 Copy code
-git clone https://github.com/yourusername/dino-game.git
-cd dinosaur-game
+git clone https://github.com/Ashhish-h/dino-game.git
+cd dino-game
 Open the index.html file in your web browser to start playing.
 
 No additional setup is required.
