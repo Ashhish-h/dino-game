@@ -14,7 +14,6 @@ Acknowledgments
 The Dinosaur Game is a basic arcade-style game where the player controls a dinosaur running through a desert landscape. The goal is to avoid obstacles, such as cacti and flying pterodactyls, by jumping over them. The game gets progressively faster, increasing the difficulty as the player's score increases.
 
 ## Features
-Responsive Design: Works on both desktop and mobile browsers.
 High Score Tracking: Keeps track of the highest score during the session.
 Increasing Difficulty: The speed of the game increases as the player progresses.
 Simple Controls: Press the spacebar or tap the screen to jump.
